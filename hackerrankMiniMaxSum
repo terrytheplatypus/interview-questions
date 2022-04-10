@@ -1,9 +1,4 @@
 public static void miniMaxSum(List<Integer> arr) {
-        //use binary trick for subsets
-        //iterate from 0 to 31, continue when number of 1s is not 4
-        //faster way for this problem would be to come up with simple
-        //list (11110, 11101, 11011), or literally just don't add one
-        //but this is more general
         List <Long> l = new ArrayList<>();
         for(int n = 0; n < 5; n++) {
             long sum  = 0;
