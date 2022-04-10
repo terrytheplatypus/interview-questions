@@ -1,0 +1,25 @@
+public static void plusMinus(List<Integer> arr) {
+        try{
+    double size = Double.valueOf(arr.size());
+    double neg = 0;
+    double zero = 0;
+    double pos = 0;
+    for(int n:arr) {
+        if(n > 0) {
+            pos++;
+        } 
+        else if(n < 0) {
+            neg++;
+        } else {
+            zero++;
+        }
+    }
+    System.out.println(String.format("%.4f\n%.4f\n%.4f\n", 
+    pos/size,
+    neg/size,
+    zero/size));
+    } catch (Throwable th) {
+         th.printStackTrace();
+     }
+
+    }
