@@ -1,0 +1,30 @@
+class Solution {
+    public String longestPalindrome(String s) {
+        int maxPalLen = 1;
+        String maxPal = "";
+        //just do naive solution
+        int len = 2;
+        while(len <= s.length()+1) {
+            for(int i= 0; i < s.length(); i++) {
+                if(i + len -1 > s.length()) break; 
+                StringBuilder s1 = new StringBuilder();
+                s1.append(s.substring(i, i + len-1));
+                String orig = new String(s1);
+                s1.reverse();
+                String rev = new String(s1);
+                if(orig.equals(rev)&& orig.length()> maxPalLen) {
+                    maxPalLen = orig.length();
+                    maxPal = orig;
+                }
+                
+            }
+            len +=1;
+        }
+        
+            
+        if(maxPalLen == 1 || s.length()==1) {
+            return s.substring(0, 1);
+        }
+        return maxPal;
+    }
+}
