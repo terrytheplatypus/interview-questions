@@ -1,0 +1,35 @@
+
+//leetcode said this is slow, i don't see how to speed it up tho, maybe it's the math.min method??
+
+public int minCostClimbingStairs(int[] cost) {
+        int n = cost.length;
+        
+        int[] dyn = new int[n+1];
+        //dyn[0] = cost[0];
+        //dyn[1] = cos
+        //cost is >0
+        dyn[0] = cost[0];
+        if(n == 1) {
+            return dyn[0];
+        }
+        dyn[1] =  cost[1];
+        if(n <= 2) {
+            return Math.min(dyn[0],  
+                              dyn[1]);
+        }
+        if(n == 0) return 0;
+        if(n ==1 )return cost[0];
+        if(n==2) return dyn[1];
+        
+        for(int i = 2; i < n+1; i++) {
+            if(i < n) {
+                dyn[i] = Math.min(dyn[i-1] + cost[i],  
+                              dyn[i-2] + cost[i]);
+            } else {
+                dyn[i] = Math.min(dyn[i-1],  
+                              dyn[i-2]);
+            }
+            System.out.println("dyn[" + i + "] is " + dyn[i]);
+        }
+        return dyn[n];
+    }
